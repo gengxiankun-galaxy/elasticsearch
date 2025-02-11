@@ -1,0 +1,20 @@
+#SPDX-License-Identifier: MIT-0
+---
+# tasks file for elasticsearch
+
+- name: 清除旧容器
+  shell: 'docker-compose -f {{ OPT_PATH }}/es/docker-compose.yaml rm -fsva;rm -rf {{ OPT_PATH }}/es'
+  ignore_errors: yes
+
+- name: 创建部署目录
+  shell: '[[ ! -d "{{ OPT_PATH }}/es" ]] && mkdir -vp {{ OPT_PATH }}/es'
+  ignore_errors: yes
+
+- name: 配置 docker-compose.yaml
+  copy: src=files/docker-compose.yaml dest={{ OPT_PATH }}/es/docker-compose.yaml
+
+- name: 配置环境变量
+  template: src=env.j2 dest={{ OPT_PATH }}/es/.env
+
+# - name: 运行服务
+  # shell: 'docker-compose -f {{ OPT_PATH }}/es/docker-compose.yaml up -d'

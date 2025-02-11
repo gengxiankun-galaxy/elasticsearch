@@ -1,0 +1,11 @@
+#SPDX-License-Identifier: MIT-0
+---
+# defaults file for elasticsearch
+
+OPT_PATH: /opt/
+
+ELASTIC_PASSWORD: 123456
+ELASTIC_VERSION: 8.15.3
+ES_PORT: 9200
+KIBANA_PASSWORD: 123456
+KIBANA_PORT: 5601
