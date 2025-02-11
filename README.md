@@ -28,6 +28,7 @@ Including an example of how to use your role (for instance, with variables passe
         ES_PORT: 9200
         KIBANA_PASSWORD: 123456
         KIBANA_PORT: 5601
+        ES_JAVA_OPTS: -Xms750m -Xmx750m
 
 License
 -------
